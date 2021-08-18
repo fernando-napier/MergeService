@@ -15,7 +15,10 @@ Merge Profile Diagram
 
 ENDPOINTS
 ```
+Must Have
 GET /api/v1/profiles/{profileName}
+
+Nice to Have
 GET /api/v1/profiles/{profileName}/repos
 GET /api/v1/profiles/{profileName}/languages
 GET /api/v1/profiles/{profileName}/topics
