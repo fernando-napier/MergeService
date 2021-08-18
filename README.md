@@ -7,6 +7,11 @@ To run the API run the following command at the root of the project
 python api.py
 ```
 
+Diagram
+
+![MergeProfile](https://user-images.githubusercontent.com/11913005/129831205-df392827-89cc-4e21-bb1b-0ceb0fbce6f3.png)
+
+
 ENDPOINTS
 ```
 GET /api/v1/profiles/{profileName}
