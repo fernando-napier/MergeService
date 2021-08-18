@@ -7,6 +7,46 @@ To run the API run the following command at the root of the project
 python api.py
 ```
 
+ENDPOINTS
+```
+GET /api/v1/profiles/{profileName}
+GET /api/v1/profiles/{profileName}/repos
+GET /api/v1/profiles/{profileName}/languages
+GET /api/v1/profiles/{profileName}/topics
+```
+
+Profile Request
+```
+HEADERS
+Accept:application/json
+Authorization: Bearer {apikey}
+
+BODY
+no request body
+```
+
+Profile Response
+```
+Response Body
+{
+ "repos": {
+   "original": int,
+   "forked": int
+   },
+   "followers": int,
+   "languages: [
+   {
+   "language":string,
+   "count":int
+   }],
+   "topics: [
+   {
+   "topic":string,
+   "count":int
+   }]
+}
+```
+
 Questions about Requirements:
 1) How many daily active users do we expect for this kind of service?
 2) Are there situations in which profiles submitted would be un-mergeable? specifically if the org/team names are for different orgs
@@ -26,10 +66,15 @@ Considerations:
 * How would you approach testing this design?
   * manual testing, unit testing, I'm not sure integration testing is necessary as the API is external and assumed to work virtually 100% of the time
 * What are the steps you would take to solve the problem?
-  * expose the following endpoints:
-  * GET Teams/{teamName}
-  * GET Teams/{teamName}/Github
-  * GET Teams/{teamName}/Bitbucket
-  * GET Teams/{teamName}/MergedProfile
+  * Ensure project is scoped well (for internal or internal use, any cross team dependencies, technology available to complete project, etc)
+  * Define all the data points to be returned in the merged profile
+  * Create the API spec for the request and reponse bodies to be returned by API endpoint
+  * Create a diagram for the workflow
+  * Create an epic and stories for units of work based on system design
+  * Talk with stakeholders about when the epic would slate into the initiaves of the tech team
+  * Execute stories
+  * Profit
 * Assuming we want to bring this service live to be used by customers, what additional work would you want to do before launch? 
-  *  
+  *  Finalize deployment strategy, potentially deploying at a time when low volume would occur
+  *  Demo for stakeholders
+  *  Only release for a small percentage of users based on Oauth scopes potentially
